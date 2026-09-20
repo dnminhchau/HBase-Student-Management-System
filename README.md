@@ -1,24 +1,24 @@
 # HBase Student Management System
 
-A distributed student management application built with **C# and .NET 8 Windows Forms**, using the **Apache HBase REST API** as the data layer.
+A distributed student management application built with **C# and .NET 8 Windows Forms**, using the **Apache HBase REST API** to interact with a distributed HBase cluster.
 
-This project was developed as part of the **Distributed Computing Systems** course at the University of Information Technology, VNU-HCM.
+This project was developed as part of the **Distributed Computing Systems** course at the **University of Information Technology, VNU-HCM**.
 
 ## Team Members
 
 | Member | Main Contributions | Contribution |
 |---|---|---:|
-| **Doan Ngoc Minh Chau** | HBase system analysis and design, cluster deployment and operation, system evaluation, presentation slides, and demo video | 33.3% |
-| **Le Nhat Trinh Nguyen** | Introduction, system evaluation, report review and editing, presentation slides, and demo video | 33.3% |
-| **Vo Thi Hong Phuc** | Theoretical background, conclusion and future work, and presentation slides | 33.3% |
+| **Doan&nbsp;Ngoc&nbsp;Minh&nbsp;Chau** | HBase system analysis and design, cluster deployment and operation, system evaluation, presentation slides, and demo video | 33.3% |
+| **Le&nbsp;Nhat&nbsp;Trinh&nbsp;Nguyen** | Introduction, system evaluation, report review and editing, presentation slides, and demo video | 33.3% |
+| **Vo&nbsp;Thi&nbsp;Hong&nbsp;Phuc** | Theoretical background, conclusion and future work, and presentation slides | 33.3% |
 
-This project was completed collaboratively as a three-member academic team.
+This project was completed collaboratively by a three-member academic team.
 
 ## Overview
 
-The project demonstrates how a desktop application can interact with a distributed Apache HBase cluster through REST APIs.
+The project demonstrates how a desktop application can interact with a distributed **Apache HBase** environment through REST APIs.
 
-The original system was deployed on a **3-node Ubuntu Server cluster** using VMware Workstation:
+The original system was deployed on a **3-node Ubuntu Server 20.04.6 cluster** using VMware Workstation:
 
 - **1 Master Node**
   - HMaster
@@ -32,7 +32,7 @@ The original system was deployed on a **3-node Ubuntu Server cluster** using VMw
   - NodeManager
   - ZooKeeper
 
-The cluster was configured in **Fully Distributed Mode** with HDFS for distributed storage and ZooKeeper for coordination.
+The cluster was configured in **Fully Distributed Mode**, using **HDFS** for distributed storage and **ZooKeeper** for coordination.
 
 ## Architecture
 
@@ -78,7 +78,7 @@ Apache HBase Cluster
 - View student records
 - Add new students
 - Update student information
-- Delete students
+- Delete individual student records
 - Delete all records
 - Import student data from CSV
 - Export student data to CSV
@@ -113,15 +113,17 @@ The application was tested with different dataset sizes.
 | 10,000 records | 42.62 s | ~235 rows/s |
 | 15,000 records | 52.00 s | ~288 rows/s |
 
+The largest recorded test imported **15,000 student records in approximately 52 seconds**.
+
 ## Fault-Tolerance Test
 
-A RegionServer was manually stopped during testing to evaluate system availability.
+A RegionServer was manually stopped to evaluate the availability and fault-tolerance behavior of the distributed HBase environment.
 
 Observed behavior:
 
 - HMaster detected the unavailable RegionServer.
 - Regions were reassigned to the remaining RegionServer.
-- The `students` table remained available.
+- The `students` table remained online.
 - The application continued to perform Load, Add, Update, and Delete operations.
 - No data loss was observed during the test.
 - After restarting the RegionServer, it successfully rejoined the cluster.
@@ -141,7 +143,8 @@ Make sure the HBase REST Server is running before starting the application.
 
 ## Demo
 
-🎥 **Video Demo:**  
+🎥 **Video Demo**
+
 https://drive.google.com/drive/folders/1Co4G50KezhaD4e-bWFT0C4n6oORf_3Vx
 
 ## Project Structure
@@ -164,9 +167,9 @@ HBaseStudentApp/
     └── Properties/
 ```
 
-## Academic Project
+## Academic Information
 
 **Course:** Distributed Computing Systems  
-**University:** University of Information Technology – VNU-HCM
+**University:** University of Information Technology, VNU-HCM
 
-The project focuses on deploying and evaluating a distributed Apache HBase environment and building a practical client application to interact with the cluster.
+The project focuses on deploying and evaluating a distributed Apache HBase environment and building a practical C# client application to interact with the cluster through REST APIs.
